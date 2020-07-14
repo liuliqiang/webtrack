@@ -1,0 +1,61 @@
+/* .body-top,.header,.header .logo{background: url(../images/v9/body-top.png) repeat-x left -115px;} */
+.body-top{
+	background-color:#fff;
+}
+.body-top .member{
+	float:right;
+	height:72px;
+	padding-top:10px;
+}
+
+.log .r a{
+    float: right;
+	font-size:12px;
+    /* padding: 30px; */
+    width: 50px;
+	text-decoration:none;
+	color:#333333;
+}
+
+.log .r a:hover{
+	color:#4285f4;
+}
+
+.log .r a span{
+	display:block;
+	text-align:center
+}
+
+@font-face {
+  font-family: 'icomoon-member';
+  src: url('fonts/icomoon-member.eot?jp7diz');
+  src: url('fonts/icomoon-member.eot?jp7diz') format('embedded-opentype'), url('fonts/icomoon-member.ttf?jp7diz') format('truetype'), url('fonts/icomoon-member.woff?jp7diz') format('woff'), url('fonts/icomoon-member.svg?jp7diz') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^='icon-member'],[class*='icon-member']{
+	font-family:'icomoon-member';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	font-size:16px;
+	display:block;
+	text-align:center;
+}
+
+ i.icon-member-login:before{
+	content: "\e907";
+}
+
+ i.icon-member-register:before{
+	content: "\e90A";
+}
+
+.log .snda{ position:relative; bottom:-3px}
+.body-top .login a.rss{width:32px; float:right;overflow:hidden; text-indent:-222px;background: url(../images/icon/rsso.gif) no-repeat left center; margin-left:8px}
+/* 滚动公告 */
+#announ{ height:22px; line-height:22px; overflow:hidden; float:left;background: url(../images/v9/icon.png) no-repeat left -461px; padding-left:20px}
+.register .form-reg {padding:22px;}

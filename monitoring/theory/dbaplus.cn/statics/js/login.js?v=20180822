@@ -1,0 +1,45 @@
+function ajax_head_is_login(){
+	
+	$.ajax({
+            type: "GET",
+            url : "/index.php?m=member&c=index&a=mini",
+            data:{"siteid":1,"is_ajax":1},
+            dataType: "json",
+            success : function(data){
+				var head_html = "";
+				var first_name = "";
+				var first_url = "";
+				var second_name = "";
+				var second_url = "";
+				var status = parseInt(data['status']);
+				var login_data = data['data'];
+				var siteid = login_data['siteid'];
+				var forward = login_data['forward'];
+				if(status == 0){
+					//未登录
+					first_name = "登录";
+					first_url = "/index.php?m=member&c=index&a=login&forward="+ forward +"&siteid=" + siteid;
+					second_name = "注册";
+					second_url = "/index.php?m=member&c=index&a=register&forward="+ forward +"&siteid="+ siteid;
+                    head_html += '<span class="login"> <a href="'+ first_url +'"> <span>'+ first_name +'</span> </a> '+
+						         '<a href="'+ second_url +'"> <span>'+ second_name +'</span> </a> </span>';
+							
+				}else{
+					//已登录
+					first_name = login_data['nick_name'] ? login_data['nick_name'] :login_data['user_name'];
+					first_url = "/index.php?m=member&c=index&siteid=" + siteid;
+					second_name = "登出";
+					second_url = "/index.php?m=member&c=index&a=logout&forward="+ forward +"&siteid=" + siteid;
+					head_html += '<span class="logged"> <a href="'+ first_url +'" class="nickname">'+
+					             first_name +'</a> <a href="'+ second_url +'">'+ second_name +'</a> </span>';
+				}
+				
+				$("#head_is_login").html(head_html);
+            },
+    });
+}
+
+$(document).ready(function(){
+	
+	ajax_head_is_login();
+});
